@@ -1,0 +1,19 @@
+{
+  "name": "json-config-lambda-handler",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicholas Penree <nick@penree.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-kms-decrypt-env": "^1.0.0",
+    "debug": "^2.6.5",
+    "is-json": "^2.0.1"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.46.0"
+  }
+}
