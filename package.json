@@ -1,6 +1,6 @@
 {
   "name": "json-config-lambda-handler",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Lambda function wrapper to load config from JSON environment variable (with optional KMS encryption)",
   "main": "index.js",
   "scripts": {

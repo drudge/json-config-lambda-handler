@@ -13,13 +13,13 @@ function encryptedEnvConfigHandler(envVar, handler) {
   } else {
     debug(`reading from ${envVar} environment variable`);
   }
-  return function handle(evt, ctx, cb) {
+  return function handle(event, context, callback) {
     if (typeof handler !== 'function') {
       throw new Error('Invalid handler function specified!');
     }
     const run = config => {
       debug('invoking handler');
-      return handler({ evt, ctx, config }, cb);
+      return handler({ event, context, config }, callback);
     };
 
     if (isJSON(process.env[envVar])) {
@@ -34,11 +34,11 @@ function encryptedEnvConfigHandler(envVar, handler) {
 
     debug('detected encrypted config');
     return decryptEnvVars([envVar], decrypted, (err) => {
-      if (err) return cb(err);
+      if (err) return callback(err);
       try {
         decrypted[envVar] = JSON.parse(decrypted[envVar]);
       } catch (error) {
-        return cb(error);
+        return callback(error);
       }
       return run(decrypted[envVar]);
     });
